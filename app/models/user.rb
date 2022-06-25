@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   self.skip_session_storage = [:http_auth, :params_auth]
 
+  validates :email, presence: true, uniqueness: true
+
   def jwt_payload
     { id: id, exp: 60.days.from_now.to_i }
   end

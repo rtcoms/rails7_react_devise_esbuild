@@ -311,5 +311,9 @@ Devise.setup do |config|
   #
   config.jwt do |jwt|
     jwt.secret = Rails.application.secrets.secret_key_base
+    jwt.dispatch_requests = [['POST', %r{^/api/users}]]
+    jwt.revocation_requests = [['DELETE', %r{^/api/users}]]
+    jwt.expiration_time = 1.day.to_i
+    jwt.request_formats = { user: [:json] }
   end
 end

@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   root "home#index"
 
   scope :api, defaults: { format: :json } do
-    devise_for :users, controllers: { session: :sessions, registrations: :registrations }
+    devise_for :users, controllers: { sessions: :sessions, registrations: :registrations }
   end
 end
