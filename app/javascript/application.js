@@ -1,9 +1,9 @@
 // Entry point for the build script in your package.json
 
-import { define } from 'remount'
-import Clock from './components/clock'
+import App from './components/app'
+import {createRoot} from "react-dom/client";
+import * as React from "@types/react";
 
-define({ 'x-clock': Clock })
-
-
-
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<App tab="home" />);
