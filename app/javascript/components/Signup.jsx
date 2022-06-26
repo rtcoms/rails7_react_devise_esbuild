@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, {useContext} from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { register } from "../services/authService";
 import { useNavigate } from "react-router-dom";
-
+import { AuthContext } from "../AuthContext";
 
 const validationSchema = yup.object({
   email: yup
@@ -20,6 +20,7 @@ const validationSchema = yup.object({
 
 const Signup = () => {
   const navigate = useNavigate();
+  const { token, setToken } = useContext(AuthContext);
 
   const handleSubmit = (values) => {
 
@@ -32,7 +33,7 @@ const Signup = () => {
       const jwtToken = res.headers.authorization.split(' ')[1];
       console.log('REGISTER TOKEN', jwtToken);
       window.localStorage.setItem("token", jwtToken);
-
+      setToken(jwtToken);
       // redirect to root using react router dom
       navigate("/", {});
     })
