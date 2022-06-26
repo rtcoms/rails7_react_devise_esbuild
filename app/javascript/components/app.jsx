@@ -1,10 +1,13 @@
-import * as React from 'react';
+import React from 'react';
+import  { useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Home from './pages/Home';
 import Register from './pages/Register';
+import { getCurrentUser } from "../services/authService";
+import useStore from '../store';
 
 import {
   BrowserRouter as Router,
@@ -18,6 +21,10 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 const theme = createTheme();
 
 export default function App() {
+
+  const currentUser = getCurrentUser();
+  console.log('CURRENT USER', currentUser);
+
   return (
     <ThemeProvider theme={theme}>
       <Router>

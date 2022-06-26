@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { register } from "../services/authService";
+import { useNavigate } from "react-router-dom";
+import useStore from '../store';
+
 
 const validationSchema = yup.object({
   email: yup
@@ -17,21 +20,37 @@ const validationSchema = yup.object({
 });
 
 const Signup = () => {
+  const setAuthToken = useStore((state) => state.setAuthToken)
+  const navigate = useNavigate();
+
+  const handleSubmit = (values) => {
+
+    console.log('INTIATE REG REQUEST', values);
+
+    const { data } =  register({user: values}).then(res => {
+      console.log('REGISTER RESPONSE', res);
+      console.log('REGISTER RESPONSE', res.data);
+      console.log('REGISTER HEADER', res.headers);
+      const jwtToken = res.headers.authorization.split(' ')[1];
+      console.log('REGISTER TOKEN', jwtToken);
+      // window.localStorage.setItem("token", jwtToken);
+      setAuthToken(jwtToken)
+
+      // redirect to root using react router dom
+      navigate("/", { replace: true });
+    })
+  };
+
   const formik = useFormik({
-    initialValues: {
-      email: '',
-      password: '',
-    },
+    initialValues: { email: '',  password: '',},
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      console.log(values);
       try {
-        const { data } = register({user: values});
-        window.localStorage.setItem("user_auth", data);
+        handleSubmit(values);
       } catch (error) {
         console.log(error);
       }
-    },
+    }
   });
 
   return (
