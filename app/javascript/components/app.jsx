@@ -3,7 +3,8 @@ import AppBar from '@mui/material/AppBar';
 import CssBaseline from '@mui/material/CssBaseline';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Home from './pages/home';
+import Home from './pages/Home';
+import Register from './pages/Register';
 
 import {
   BrowserRouter as Router,
@@ -28,7 +29,8 @@ export default function App() {
         </AppBar>
         <main>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home/ >} />
+            <Route path="/signup" element={<Register />} />
           </Routes>
         </main>
       </Router>
