@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import { register } from "../services/authService";
 
 const validationSchema = yup.object({
   email: yup
@@ -23,7 +24,13 @@ const Signup = () => {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      console.log(values);
+      try {
+        const { data } = register({user: values});
+        window.localStorage.setItem("user_auth", data);
+      } catch (error) {
+        console.log(error);
+      }
     },
   });
 
