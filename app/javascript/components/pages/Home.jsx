@@ -4,6 +4,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import { Link } from 'react-router-dom'
 
 export default function Home({currentUser}) {
   return (
@@ -30,9 +31,9 @@ export default function Home({currentUser}) {
           spacing={2}
           justifyContent="center"
         >
-          {!currentUser && <Button variant="contained">Register</Button>}
-          {!currentUser && <Button variant="contained">Sign in</Button>}
-          {currentUser && <Button variant="outlined">Sign out</Button>}
+          {!currentUser && <Link to='/signup'><Button variant="contained">Register</Button></Link>}
+          {!currentUser && <Link to='/login'><Button variant="contained">Sign in</Button></Link>}
+
         </Stack>
       </Container>
     </Box>

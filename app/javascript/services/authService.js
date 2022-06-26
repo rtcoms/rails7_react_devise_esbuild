@@ -4,6 +4,10 @@ export function register(data) {
   return axios.post('/api/users', data);
 }
 
+export function sign_in(data) {
+  return axios.post('/api/users/sign_in', data);
+}
+
 export function signOut(currentUserToken) {
   window.localStorage.clear();
 }
