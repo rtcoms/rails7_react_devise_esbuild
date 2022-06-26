@@ -314,6 +314,6 @@ Devise.setup do |config|
     jwt.dispatch_requests = [['POST', %r{^/api/users}]]
     jwt.revocation_requests = [['DELETE', %r{^/api/users}]]
     jwt.expiration_time = 1.day.to_i
-    jwt.request_formats = { user: [:json] }
+    # jwt.request_formats = { user: [:json] }
   end
 end

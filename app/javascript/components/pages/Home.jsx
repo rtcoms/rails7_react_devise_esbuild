@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
-export default function Home() {
+export default function Home({currentUser}) {
   return (
     <Box
       sx={{
@@ -30,9 +30,9 @@ export default function Home() {
           spacing={2}
           justifyContent="center"
         >
-          <Button variant="contained">Register</Button>
-          <Button variant="contained">Sign in</Button>
-          <Button variant="outlined">Sign out</Button>
+          {!currentUser && <Button variant="contained">Register</Button>}
+          {!currentUser && <Button variant="contained">Sign in</Button>}
+          {currentUser && <Button variant="outlined">Sign out</Button>}
         </Stack>
       </Container>
     </Box>

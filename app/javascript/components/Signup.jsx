@@ -5,7 +5,6 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { register } from "../services/authService";
 import { useNavigate } from "react-router-dom";
-import useStore from '../store';
 
 
 const validationSchema = yup.object({
@@ -20,24 +19,22 @@ const validationSchema = yup.object({
 });
 
 const Signup = () => {
-  const setAuthToken = useStore((state) => state.setAuthToken)
   const navigate = useNavigate();
 
   const handleSubmit = (values) => {
 
-    console.log('INTIATE REG REQUEST', values);
+    console.log('INITIATE REG REQUEST', values);
 
-    const { data } =  register({user: values}).then(res => {
+    register({user: values}).then(res => {
       console.log('REGISTER RESPONSE', res);
       console.log('REGISTER RESPONSE', res.data);
       console.log('REGISTER HEADER', res.headers);
       const jwtToken = res.headers.authorization.split(' ')[1];
       console.log('REGISTER TOKEN', jwtToken);
-      // window.localStorage.setItem("token", jwtToken);
-      setAuthToken(jwtToken)
+      window.localStorage.setItem("token", jwtToken);
 
       // redirect to root using react router dom
-      navigate("/", { replace: true });
+      navigate("/", {});
     })
   };
 
