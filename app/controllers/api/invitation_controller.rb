@@ -2,7 +2,6 @@ class Api::InvitationController < Api::BaseController
   before_action :authenticate_user!
 
   def create
-    binding.pry
     @invitation = Invitation.new(invitation_params)
     @invitation.user = current_user
 

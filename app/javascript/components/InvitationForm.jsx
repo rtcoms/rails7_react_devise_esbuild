@@ -19,8 +19,10 @@ const InvitationForm = () => {
 
     console.log('INITIATE INVITE CREATION REQUEST', values);
 
-    createInvitation(values).then(res => {
-      console.log('INVITATION CREATED', res);
+    createInvitation(values).then(response => {
+      console.log('INVITATION CREATED', response.data);
+
+      alert(JSON.stringify(response.data));
     })
   };
 
