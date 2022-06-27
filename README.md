@@ -13,5 +13,12 @@ Clone the repository:
 
 ```cd rails7_react_devise_esbuild```
 
+```bundle install```
+
 ```bundle exec rake db:migrate```
+
+```yarn install```
+
 ```bin/dev```
+
+explore app on: http://localhost:3000
