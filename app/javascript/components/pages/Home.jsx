@@ -6,6 +6,7 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { Link } from 'react-router-dom'
 import Profile from './Profile';
+import InvitationForm from '../InvitationForm';
 
 export default function Home({currentUser}) {
   return (
@@ -26,7 +27,9 @@ export default function Home({currentUser}) {
         >
           User info
         </Typography>
-        <Profile />
+        {currentUser && <Profile/>}
+        <Typography variant={'h5'}>Invitation from</Typography>
+        {currentUser && <InvitationForm/>}
         <Stack
           sx={{ pt: 4 }}
           direction="row"

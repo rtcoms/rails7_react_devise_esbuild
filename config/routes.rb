@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root "home#index"
 
   namespace :api do
+    post 'invitation/create'
     get 'users/profile'
   end
 
