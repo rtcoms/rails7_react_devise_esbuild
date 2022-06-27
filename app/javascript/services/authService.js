@@ -7,8 +7,3 @@ export function register(data) {
 export function sign_in(data) {
   return axios.post('/api/users/sign_in', data);
 }
-
-export function signOut(currentUserToken) {
-  window.localStorage.clear();
-}
-

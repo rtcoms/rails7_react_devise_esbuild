@@ -9,7 +9,13 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
 
+  before_create :set_referral_token
+
   def jwt_payload
     { id: id, email: email, exp: 60.days.from_now.to_i }
+  end
+
+  def set_referral_token
+    self.referral_token = SecureRandom.uuid
   end
 end

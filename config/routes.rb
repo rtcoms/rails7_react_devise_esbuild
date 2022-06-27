@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "home#index"
 
+  namespace :api do
+    get 'users/profile'
+  end
+
   scope :api, defaults: { format: :json } do
     devise_for :users, controllers: { sessions: :sessions, registrations: :registrations }
   end

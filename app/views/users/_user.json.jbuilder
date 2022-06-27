@@ -1,1 +1,1 @@
-json.(user, :id, :email, :authentication_token)
+json.(user, :id, :email, :referral_token, :referrer_id)

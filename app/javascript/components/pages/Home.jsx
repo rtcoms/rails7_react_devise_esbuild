@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { Link } from 'react-router-dom'
+import Profile from './Profile';
 
 export default function Home({currentUser}) {
   return (
@@ -23,8 +24,9 @@ export default function Home({currentUser}) {
           color="text.primary"
           gutterBottom
         >
-          React/Rails/Esbuild/Devise app
+          User info
         </Typography>
+        <Profile />
         <Stack
           sx={{ pt: 4 }}
           direction="row"
