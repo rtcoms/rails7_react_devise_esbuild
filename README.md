@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails 7, ReactJs, Devise with JWT auth based application. 
 
-Things you may want to cover:
+database: Sqlite3
 
-* Ruby version
+To run the application:
 
-* System dependencies
+Clone the repository:
 
-* Configuration
+```cd rails7_react_devise_esbuild```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bundle exec rake db:migrate```
+```bin/dev```
