@@ -2,6 +2,9 @@
 
 Rails 7, ReactJs, Devise with JWT auth based application. 
 
+Ruby - 3.0.1
+Rails - 7.03
+
 database: Sqlite3
 
 To run the application:
