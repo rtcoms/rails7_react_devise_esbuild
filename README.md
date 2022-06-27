@@ -22,3 +22,5 @@ Clone the repository:
 ```bin/dev```
 
 explore app on: http://localhost:3000
+
+Demo: https://www.loom.com/share/344018c5a4a54ca280b45659bb0db9d0
